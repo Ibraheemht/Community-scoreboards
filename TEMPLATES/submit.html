@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/732-bar-chart.svg/2048px-732-bar-chart.svg.png">
+
+    <style>
+
+        body {
+            background-color: #F1F6F9;
+        }
+
+        .inputdesc {
+            margin-top: 3px;
+        }
+
+        .control-label.col-sm-2 {
+            padding-right: 5px;
+        }
+
+        .headtitle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #19376D;
+            padding: 20px 0px;
+            margin: 20px 0px;
+            margin-bottom: 40px;
+            color: white;
+            border-radius: 20px;
+            border: 0.05px solid gray;
+        }
+
+        input {
+            background-color: #F1F6F9 !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="headtitle">
+            <h2>Submit your Scoreboard!</h2>
+        </div>
+        
+
+        <form class="contact-form row" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="name">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" placeholder="John Doe" name="name" required>
+                    <p class="inputdesc">If you want to update your entry, please submit this form again using the
+                        <b>same name</b> you used before</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="link">Link</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="link"
+                        placeholder="https://docs.google.com/spreadsheets/d/1aBcDeFg...."
+                        name="link" required>
+                    <p class="inputdesc">Please add a spreadsheet link, notion, or any public platform with with viewer
+                        access to your scoreboard</p>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="link">Thumbnail</label>
+                <div class="col-sm-10">
+                    <input type="file" class="formfield middle" name="featured_image" required>
+                    <p class="inputdesc">This picture will be used for your entry card.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+
+    <footer class="text-muted">
+        <div class="container" style="width: 100%; text-align: right; padding-right: 7%;">
+          <p><a href="/">Home</a> page</p>
+        </div>
+      </footer>
+
+</body>
+
+</html>
